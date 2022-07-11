@@ -15,8 +15,21 @@ var cors = require("cors");
 const {v4: uuidv4} = require('uuid')
 const db = admin.firestore();
 // to prevent CORS errors
-app.use(cors());
 
+const corsOpts = {
+  origin: '*',
+
+  methods: [
+    'GET',
+    'POST',
+  ],
+
+  allowedHeaders: [
+    'Content-Type',
+  ],
+};
+
+app.use(cors(corsOpts));
 
 
 
